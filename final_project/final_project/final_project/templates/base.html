@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Final Test</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{%static 'css/materialize.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{%static 'css/style.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+
+  <nav class="blue">
+    <div class="nav-wrapper">
+      <a href="{% url 'index' %}" class="brand-logo">Final Test</a>
+      <ul class="right hide-on-med-and-down">
+
+
+          <li><a  href="#!">{% if user.is_authenticated %} {{user.username}} <i class="material-icons right">account_circle</i> {%else%}<li><a href="{% url 'signup' %}">Sign up</a></li>  <li><a href="{% url 'login' %}">login</a></li>{%endif%}</a></li>
+          {% if user.is_authenticated %}
+          <li><a  href="{% url 'logout' %}">log out<i class="material-icons right">settings_power</i></a></li>
+          {%endif%}
+
+
+      </ul>
+
+    </div>
+  </nav>
+         <div class="container">
+              <div class="section">
+                  {% block content%}
+                  {%endblock%}
+                  {% block pagination %}
+                  {% endblock%}
+
+              </div>
+          </div>
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">I am a computer scientist and applied physicist. My works are mostly based on python, machine
+learning, and deep learning algorithms. This site is just a try to make a blog website where you can literally write about everything.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Rashadul Islam</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+  </body>
+</html>

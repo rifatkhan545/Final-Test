@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{% block content%}
+<div>
+    <h4>Active Employees_id</h4>
+    {%for employee in employees %}
+    <li style='padding-left: 30px;'> {{employee.employee_identification }} </li>
+    <li style='padding-left: 30px;'> {{employee.employee_name}} </li>
+    {% endfor %}
+</div>
+{%endblock%}
+
+
